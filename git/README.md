@@ -3,6 +3,10 @@
 
 List of frequently used git commands
 
+# Git Private repo
+
+While cloning a private git repo, use `SSH` instead of `HTTPS` with `git clone` command.
+
 ## Git config
 
 Set username and email
