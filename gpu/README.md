@@ -23,3 +23,17 @@ conda create --name keras
 conda activate keras
 conda install keras-gpu
 ```
+
+CUDA / Tensorflow compatibility versions:
+![CUDA versions compatibility](images/image.png)
+
+Limit memory allocation:
+```
+import tensorflow as tf
+from keras import backend as K
+
+# Prevents tensorflow from pre-allocating the entire GPU memory
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+K.tensorflow_backend.set_session(tf.Session(config=config))
+```
