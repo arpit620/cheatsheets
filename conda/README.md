@@ -14,6 +14,9 @@ Get list of all env\
 Make a copy of existing env\
 `conda create --clone py35 --name py35-2`
 
+Delete environment\
+`conda env remove -n <env_name>`
+
 List all package\
 `conda list`
 
