@@ -4,8 +4,7 @@
 List of frequently used GPU related commands
 
 ## Check if GPU is present
-[StackOverflow]
-(https://stackoverflow.com/questions/38559755/how-to-get-current-available-gpus-in-tensorflow)
+[StackOverflow](https://stackoverflow.com/questions/38559755/how-to-get-current-available-gpus-in-tensorflow)
 
 ```
 import tensorflow as tf
