@@ -29,6 +29,10 @@ Install a package\
 Update a package\
 `conda update <pacakge_name>`
 
+Detect new conda env in jupyter notebook:\
+(Install following pacakage in new conda env)\
+`conda install nb_conda`
+
 Run jupyter notebook from command line\
 ```
 jupyter-notebook
