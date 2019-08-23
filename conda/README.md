@@ -49,6 +49,12 @@ $ conda activate cenv
 (cenv($ conda deactivate
 ```
 
+Clean up conda pkgs director (.conda > pkgs) (Use):
+```
+conda clean -h
+conda clean -p
+conda clean -all
+```
 
 Other cheatsheets:
 
