@@ -18,7 +18,8 @@ Check aggreaged disk usage of a folder:
 To check disk usage of subfile and folders:
 `du -ah /folder/location`
 
-
+Check hidden directories size as well and sort them:
+`du -sch .[!.]* * | sort -h`
 
 
 
