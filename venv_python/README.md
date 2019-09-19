@@ -23,3 +23,9 @@ Install\
 
 Check following link for further details\
 [venv wrapper](https://realpython.com/python-virtual-environments-a-primer/#managing-virtual-environments-with-virtualenvwrapper)
+
+## Add venv in jupyter notebook
+```
+pip install ipykernel
+python -m ipykernel install --user --name env_name --display-name "Python-Anything"
+```
