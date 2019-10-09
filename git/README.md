@@ -258,3 +258,19 @@ If history changed, id which needs to be reverted\
 See diff b/w 2 commits\
 `git diff <id1> <id2>`
 
+
+## Rename a branch
+Switch to branch you want to rename:\
+`git checkout <old_name>`
+
+Rename local branch:\
+`git branch -m <new_name>`
+
+Delete old branch on remote:\
+`git push origin --delete <old_name>`
+
+Push new branch:\
+`git branch origin -u <new_name>`
+
+
+
