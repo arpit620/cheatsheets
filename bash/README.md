@@ -27,8 +27,8 @@ Filter files & Folders with regex:
 Inverse filter files & Folders with regex:
 `ls | grep -vE "2000|27250|*.tar.gz|*.json"`
 
-Delete selected files:
-`ls | grep -vE "2000|27250|*.tar.gz|*.json" | xargs rm -rf`
+Delete selected files ( Starting with 2000 and general regex example ):
+`ls | grep -vE "^2000|27250|*.tar.gz|*.json" | xargs rm -rf`
 
 
 
