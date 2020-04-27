@@ -21,5 +21,16 @@ To check disk usage of subfile and folders:
 Check hidden directories size as well and sort them:
 `du -sch .[!.]* * | sort -h`
 
+Filter files & Folders with regex:
+`ls | grep -E "2000|27250|*.tar.gz|*.json"`
+
+Inverse filter files & Folders with regex:
+`ls | grep -vE "2000|27250|*.tar.gz|*.json"`
+
+Delete selected files:
+`ls | grep -vE "2000|27250|*.tar.gz|*.json" | xargs rm -rf`
+
+
+
 
 
