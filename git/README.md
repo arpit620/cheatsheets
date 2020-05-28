@@ -272,5 +272,13 @@ Delete old branch on remote:\
 Push new branch:\
 `git branch origin -u <new_name>`
 
+## Gitignore files
+One which is shared across developers:\
+`.gitignore`
 
+Personal `gitignore` file [Details](https://medium.com/@dave_lunny/exclude-files-from-git-without-committing-changes-to-gitignore-986fa712e78d):\
+`.git/info/exclude`
+
+List all ignored files:\
+`git ls-files --others --exclude-from=.git/info/exclude`
 
