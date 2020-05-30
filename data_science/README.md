@@ -14,3 +14,10 @@ Drop highly correlated features
 - Air flow ( Automate ) 
 
 2. I Don't like Notebooks [Details](https://www.youtube.com/watch?v=7jiPeIFXb6U)
+
+3. Logging
+- Logging + ConfigFile + Traceback + Rotating files [Details](https://www.youtube.com/watch?v=p0A4CV4MWd0)
+- Logging basics [Details](https://www.youtube.com/watch?v=-ARI4Cz-awo)
+- Logging Advance [Details](https://www.youtube.com/watch?v=jxmzY9soFXg)
+- Logging PyCon [Details](https://www.youtube.com/watch?v=DxZ5WEo4hvU)
+
