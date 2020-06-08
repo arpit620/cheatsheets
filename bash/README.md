@@ -1,5 +1,8 @@
 
-# Git bash
+## Linux Commands
+
+
+### Disk usage
 
 List of frequently used bash commands
 
@@ -30,7 +33,16 @@ Inverse filter files & Folders with regex:
 Delete selected files ( Starting with 2000 and general regex example ):
 `ls | grep -vE "^2000|27250|*.tar.gz|*.json" | xargs rm -rf`
 
+### nohup
 
+Run nohup command:\
+`nohup <command>`  
+`nohup python run.py`
 
+Run nohup in backgroud:\
+`nohup python run.py &`
+
+Redirect standard output and standard error:\
+`nohup mycommand > mycommand.out 2>&1 &`
 
 
