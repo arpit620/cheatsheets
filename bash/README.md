@@ -1,6 +1,6 @@
+# Bash
 
 ## Linux Commands
-
 
 ### Disk usage
 
@@ -34,31 +34,32 @@ Delete selected files ( Starting with 2000 and general regex example ):
 `ls | grep -vE "^2000|27250|*.tar.gz|*.json" | xargs rm -rf`
 
 ### Compress data
+
 Compress file:\
 `tar -czvf filename.tar.gz /path/to/folder`
-- '-c' : Create an archive
-- '-z' : Compress file with gzip
-- '-v : verbose. Display files while compressing
-- '-f' : Specify filename of archive file
+
+* '-c' : Create an archive
+* '-z' : Compress file with gzip
+* '-v : verbose. Display files while compressing
+* '-f' : Specify filename of archive file
 
 Compress Multiple files or directories:\
 `tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/Documents/notes.txt`
 
 Exclude:\
-`tar -czvf archive.tar.gz /home/ubuntu --exclude=/home/ubuntu/Downloads --exclude=/home/ubuntu/.cache`  
+`tar -czvf archive.tar.gz /home/ubuntu --exclude=/home/ubuntu/Downloads --exclude=/home/ubuntu/.cache`
 `tar -czvf archive.tar.gz /home/ubuntu --exclude=*.mp4`
 
 Extract an Archive:\
 `tar -xzvf archive.tar.gz`
 `tar -xzvf archive.tar.gz -C /tmp`
 
-- '-C' : Specify extracted directory
-
+* '-C' : Specify extracted directory
 
 ### nohup
 
 Run nohup command:\
-`nohup <command>`  
+`nohup <command>`
 `nohup python run.py`
 
 Run nohup in backgroud:\
@@ -66,5 +67,3 @@ Run nohup in backgroud:\
 
 Redirect standard output and standard error:\
 `nohup mycommand > mycommand.out 2>&1 &`
-
-

@@ -34,7 +34,8 @@ Detect new conda env in jupyter notebook:\
 `conda install nb_conda`
 
 Run jupyter notebook from command line\
-```
+
+```bash
 jupyter-notebook
 jupyter-notebook --port 1234
 jupyter-notebook --port 1234 --ip 0.0.0.0
@@ -42,7 +43,8 @@ jupyter-notebook --port 1234 --ip 0.0.0.0
 
 Add conda environment to jupyter lab
 [StackOverflow](https://stackoverflow.com/questions/53004311/how-to-add-conda-environment-to-jupyter-lab)
-```
+
+```bash
 $ conda activate cenv
 (cenv)$ conda install ipykernel
 (cenv)$ ipython kernel install --user --name=<any_name_for_kernel>
@@ -50,7 +52,8 @@ $ conda activate cenv
 ```
 
 Clean up conda pkgs director (.conda > pkgs) (Use):
-```
+
+```bash
 conda clean -h
 conda clean -p
 conda clean -all
@@ -60,4 +63,3 @@ Other cheatsheets:
 
 [Cheatsheet 1](http://know.continuum.io/rs/387-XNW-688/images/conda-cheatsheet.pdf)
 [Cheatsheet 2](https://jacknorthrup.com/Multiple-Program-Languages-Documentation/conda-cheatsheet.pdf)
-
