@@ -9,3 +9,6 @@
 - iterm2 shortcuts
 - iterm2 + zsh + that github plugin/ customized skin
 - screen shortcuts
+
+
+Move to iterm2 and VS Code
