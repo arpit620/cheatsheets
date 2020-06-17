@@ -13,5 +13,5 @@
 * iterm2 + zsh + that github plugin/ customized skin
 * screen shortcuts
 
-Move to iterm2 and VS Code
+Move to iterm2 and VS Code\
 Start using bash command : howdoi
