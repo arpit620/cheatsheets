@@ -14,3 +14,4 @@
 * screen shortcuts
 
 Move to iterm2 and VS Code
+Start using bash command : howdoi

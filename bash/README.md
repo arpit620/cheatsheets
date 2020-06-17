@@ -42,6 +42,11 @@ Compress file:\
 * '-z' : Compress file with gzip
 * '-v : verbose. Display files while compressing
 * '-f' : Specify filename of archive file
+* '-p' : preserve file permissions
+* '-j' : for bzip compression
+* '-u' : Instead of create it will update
+* '-k' : Preserve files that already exsit while updating
+* '-x' : Extract the data
 
 Compress Multiple files or directories:\
 `tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/Documents/notes.txt`
