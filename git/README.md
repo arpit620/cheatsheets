@@ -96,6 +96,12 @@ git checkout <branch>
 git checkout <commit_id>
 ```
 
+Push uncommited changes to a different branch [Details](https://stackoverflow.com/questions/4746672/put-current-changes-in-a-new-git-branch):
+```
+git checkout -b my_new_branch
+git commit
+```
+
 List all branches\
 `git branch -av` 
 
