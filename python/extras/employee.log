@@ -1,0 +1,11 @@
+INFO:__main__:Created Employee: John Smith - John.Smith@email.com
+INFO:__main__:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:__main__:Created Employee: Jane Doe - Jane.Doe@email.com
+INFO:log_employee_adv:Created Employee: John Smith - John.Smith@email.com
+INFO:log_employee_adv:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:log_employee_adv:Created Employee: Jane Doe - Jane.Doe@email.comINFO:log_employee_adv:Created Employee: John Smith - John.Smith@email.com
+INFO:log_employee_adv:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:log_employee_adv:Created Employee: Jane Doe - Jane.Doe@email.com
+INFO:log_employee_adv:Created Employee: John Smith - John.Smith@email.com
+INFO:log_employee_adv:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:log_employee_adv:Created Employee: Jane Doe - Jane.Doe@email.com

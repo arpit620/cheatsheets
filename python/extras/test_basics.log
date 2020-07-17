@@ -2,3 +2,48 @@
 2020-07-17 18:13:59,015:DEBUG:Add: 20 + 10 = 30
 2020-07-17 18:13:59,015:DEBUG:Sub: 20 - 10 = 10
 2020-07-17 18:13:59,015:INFO:**********
+2020-07-17 18:33:33,995:INFO:Inside add
+2020-07-17 18:33:33,996:DEBUG:Add: 20 + 10 = 30
+2020-07-17 18:33:33,996:DEBUG:Sub: 20 - 10 = 10
+2020-07-17 18:33:33,996:INFO:**********
+2020-07-17 21:15:50,430:__main__:Inside add
+2020-07-17 21:15:50,431:__main__:Add: 20 + 10 = 30
+2020-07-17 21:15:50,431:__main__:Sub: 20 - 10 = 10
+2020-07-17 21:28:54,473:__main__:Inside add
+2020-07-17 21:28:54,474:__main__:Add: 20 + 10 = 30
+2020-07-17 21:28:54,474:__main__:Sub: 20 - 10 = 10
+2020-07-17 21:29:23,235:__main__:Inside add
+2020-07-17 21:29:23,235:__main__:Add: 20 + 0 = 20
+2020-07-17 21:29:23,235:__main__:Sub: 20 - 0 = 20
+2020-07-17 21:29:23,235:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "/Users/a0g06a7/Desktop/walmart_local/public_github/cheatsheets/python/logging_advanced.py", line 43, in divide
+    result = x / y
+ZeroDivisionError: division by zero
+2020-07-17 21:30:50,644:__main__:Inside add
+2020-07-17 21:30:50,645:__main__:Add: 20 + 0 = 20
+2020-07-17 21:30:50,645:__main__:Sub: 20 - 0 = 20
+2020-07-17 21:30:50,645:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "/Users/a0g06a7/Desktop/walmart_local/public_github/cheatsheets/python/logging_advanced.py", line 43, in divide
+    result = x / y
+ZeroDivisionError: division by zero
+2020-07-17 21:32:03,619:__main__:Inside add
+2020-07-17 21:32:03,619:__main__:Add: 20 + 0 = 20
+2020-07-17 21:32:03,619:__main__:Sub: 20 - 0 = 20
+2020-07-17 21:32:03,619:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "/Users/a0g06a7/Desktop/walmart_local/public_github/cheatsheets/python/logging_advanced.py", line 43, in divide
+    result = x / y
+ZeroDivisionError: division by zero
+2020-07-17 21:32:31,041:__main__:Inside add
+2020-07-17 21:32:31,041:__main__:Add: 20 + 0 = 20
+2020-07-17 21:32:31,042:__main__:Sub: 20 - 0 = 20
+2020-07-17 21:32:31,042:__main__:Mul: 20 * 0 = 0
+2020-07-17 21:32:31,042:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "/Users/a0g06a7/Desktop/walmart_local/public_github/cheatsheets/python/logging_advanced.py", line 43, in divide
+    result = x / y
+ZeroDivisionError: division by zero
+2020-07-17 21:32:31,042:__main__:Div: 20 / 0 = None
+2020-07-17 21:32:31,042:__main__:**********
