@@ -3,6 +3,7 @@
 1. `time_decorator`: Create a decorator to measure run time for a function
 2. `logging_adv/basics`: How to create logs for your module
 3. `global_variables`: 3 ways to set global variables
+4. `decorators`: How to use decorators and property tags
 
 Extras:
 
