@@ -67,6 +67,10 @@ Discard all changes\
 
 Unstage files to working area, All files\
 
+Copy files from another branch (File path shoud be relative):\
+[Details](https://stackoverflow.com/questions/307579/how-do-i-copy-a-version-of-a-single-file-from-one-git-branch-to-another)\
+`git checkout <branch> <file_path>`
+
 ``` 
 git reset HEAD <filename>
 git reset HEAD *
