@@ -1,7 +1,6 @@
 import time
 
 def time_usage(orig_func):
-    import time
 
     def wrapper(*args, **kwargs):
         t1 = time.time()
