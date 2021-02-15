@@ -300,3 +300,16 @@ Personal `gitignore` file [Details](https://medium.com/@dave_lunny/exclude-files
 
 List all ignored files:\
 `git ls-files --others --exclude-from=.git/info/exclude` 
+
+## Git Fork
+
+Clone your fork
+Add remote from original repository in your forked repository:\
+```
+cd into/cloned/fork-repo
+git remote add upstream git://github.com/ORIGINAL-DEV-USERNAME/REPO-YOU-FORKED-FROM.git
+git fetch upstream
+```
+
+Updating your fork from original repo to keep up with their changes:\
+`git pull upstream master`
