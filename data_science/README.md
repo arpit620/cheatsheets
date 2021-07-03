@@ -30,3 +30,11 @@ Drop highly correlated features
 5. CookieCutter
     * DS CookieCutter [Details](https://drivendata.github.io/cookiecutter-data-science/)
     * Github repo [Details](https://github.com/drivendata/cookiecutter-data-science)
+
+6. Extras
+    * python dotenv package: For hidden environment file
+    * Toml package: for config files.
+    * yaml package: YAML safe load config file. Alternative to Toml package.
+    * tox.ini file
+    * CI/ CD : Github actions, etc
+    * MLFlow
