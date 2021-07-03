@@ -4,6 +4,11 @@
 
 [In-browser Markdown Editor](https://stackedit.io/)
 
+### To Do
+- Timeit : python
+- Python Debugger/ pdb : using command line & Pycharm / vscode
+- PyCharm
+
 ### Details to add
 
 * Linux compress/ uncompress files and folders

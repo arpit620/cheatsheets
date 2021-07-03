@@ -26,3 +26,7 @@ Drop highly correlated features
 
 * MLFlow [Details](https://github.com/mlflow/mlflow)
 * Weights and Biases [Website](https://www.wandb.com/) [Details](https://github.com/wandb)
+
+5. CookieCutter
+* DS CookieCutter [Details](https://drivendata.github.io/cookiecutter-data-science/)
+* Github repo [Details](https://github.com/drivendata/cookiecutter-data-science)
