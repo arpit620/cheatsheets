@@ -134,9 +134,79 @@ Remove image:
 docker rmi image-name:tag
 docker rmi image-id
 
+# Volumes
+
+Virtual disks
+
+- Persistant
+- Ephemeral
+
+docker run -it -v <local_path>:<docker_path> ubuntu bash
+
+Share data across different containers: ( Run these commands together)
+docker run -it -v /shared-data ubuntu bash
+docker run -it --volumes-from <above_container_id/name> ubuntu bash
 
 
+# Docker Registeries
+- Manage and distribute images
 
+Search: 
+docker search ubuntu
+
+docker login
+
+docker pull ubuntu
+docker tag ubuntu arpit/test_image:v99.9
+docker push arpit/test_image:v99.9
+
+# Dockerfile
+- Program to create an image
+ 
+docker build -t <name> .
+docker build -t <name> <path_to_docker_file>
+
+- Produces the next image with each step.
+- The parts that change the most belong at the end of the Dockerfile
+
+FROM <base_image>
+RUN echo "building docker image"
+CMD echo "hello container"
+
+
+FROM debian:sid
+RUN apt-get -y updat
+RUN apt-get install nano
+CMD ["bin/nano", "/tmp/notes"]
+
+docker build -t example/nanoer .
+
+FROM example/nanoer
+ADD notes.txt /notes.txt
+CMD "nano" "/notes.txt"
+
+
+# MULTI STAGE BUILDS
+- Used for multi project docker files
+
+FROM ubuntu as builder
+RUN <code>
+RUN <code>
+RUN curl gogole.com <code> /google
+
+FROM alpine
+COPY --from=builder /google /google
+ENTRYPOINT echo <code>
+
+
+# Start docker in docker
+docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock docker sh
+docker run -it --rm ubuntu bash
+
+
+# Others
+docker save : Save images/ Create Backup as tar.gz files
+docker load : Load backed up images
 
 
 
