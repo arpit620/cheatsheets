@@ -60,6 +60,15 @@ docker container start -ai <container_name>     # To enter into a stopped contai
 docker container exec -it mysql bash        # To enter into a running container. Exiting this will not stop container
 
 
+docker container run -it alpine sh
+apk # To install bash
+
+
+
+# Docker Networks
+
+docker container run -p 80:80 -name webhost -d nginx
+docker container port webhost       # Display open port of running container.
 
 
 
