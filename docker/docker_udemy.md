@@ -70,12 +70,31 @@ apk # To install bash
 docker container run -p 80:80 -name webhost -d nginx
 docker container port webhost       # Display open port of running container.
 
+##  Docker Network: CLI Management
+docker network ls
+docker network inspect
+docker network create --driver
+docker network network connect 
+docker network network disconnect
 
 
+docker network create my_app_net
+docker container run -d --name new_nginx --network my_app_net nginx
+
+# DNS
+Containers within same network can talk to each other.
+
+## DNS Round Robin test : Assignment
+docker network create dude
+docker container run -d --net dude --net-alias search elasticsearch:2
+docker container run -d --net dude --net-alias search elasticsearch:2
+docker container run --rm --net dude alpine nslookup search.
+docker container run --rm --net dude centos curl -s search:9200
 
 
-
-
-
+## Images
+docker image ls
+docker history nginx:latest
+docker image inspect <image_name>        # return JSON metadata about the image
 
 
