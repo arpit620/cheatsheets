@@ -1,0 +1,121 @@
+
+# Docker compose
+
+Configure relationship b/w containers.
+YAML file: containers/ networks/ volumes
+
+template:
+
+
+version: '3.1'
+services:
+    servicename:
+        image:
+        command:
+        environment:
+        volumes:
+    servicename2:
+
+volumes:
+
+network:
+
+####################################################
+
+Sample:
+
+version: '2'
+
+sercies:
+    jekyll:
+        image: bretfisher/jekyll-serve
+        volumes:
+            - .:/site
+        ports:
+            - '80:4000'
+
+
+####################################################
+
+
+version: '2'
+
+services:
+
+    wordpress:
+    image: wordpress
+    ports:
+        - 8080:80
+    environment: 
+        - WORDPRESS_DB_PASSWORD: example
+    volumes: 
+        - ./wordpress-data: /var/www/html
+
+
+    mysql: 
+        image: mariadb
+        environment: 
+            MYSQL_ROOT_PASSWORD: example
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+
+####################################################
+
+Not for production use but good for local development and test
+
+docker-compose up       # Start
+docker-compose down     # Stop
+docker-compose build
+
+docker compose logs
+docker compose up -d    # Run in background
+
+docker compose --help
+
+docker compose ps 
+docker compose top
+
+docker-compose down -v  # Take down volumes as well
+
+
+
+####################################################
+
+Build image from scratch:
+
+version: '2'
+
+services:
+    proxy: 
+        build:
+            context: .
+            dockerfile: nginx.Dockerfile
+        image: nginx-custom
+        ports:
+            - '80:80'
+    web:
+        image: httpd
+        volumes: 
+            - ./html:/usr/local/apache2/htdocs/
+
+
+
+####################################################
+
+
+
+docker-compose down --rmi local     # Delets images with no tags. ie which were built freshly.
+
+
+# Use volumes to retain database or other data
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,5 @@
+https://github.com/bretfisher/udemy-docker-mastery
+
 docker version
 docker info
 
@@ -96,5 +98,35 @@ docker container run --rm --net dude centos curl -s search:9200
 docker image ls
 docker history nginx:latest
 docker image inspect <image_name>        # return JSON metadata about the image
+
+
+## Prune
+docker image prune - clean up dangling images
+docker system prune - clean up everything
+docker image prune -a : remove images not in use
+docker system df : see space usage
+docker volume prune - remove unused volumes
+
+# Volumes
+Volumes remains ever after deleting the containers. Need to be deleted manually.
+docker volume ls - get list of all volumes
+docker volume inspect <volume_id> : Get more details
+
+volume is like attached volume in docker system. 
+Bind mount is simply soft link to a folder in host system.
+
+
+# Docker Registeries
+
+docker tag hello-world 127.0.0.1:5000/hello-world
+docker push 127.0.0.1:5000/hello-world
+
+docker remove image <name>
+
+
+
+
+
+
 
 

@@ -1,0 +1,290 @@
+
+Swarm Mode: Build-In Orchestration
+
+Swarm needs to be turned on. Its off by default.
+
+docker swarm
+docker node
+docker service
+docker stack
+docker secret
+
+
+##################################################################
+
+Check if swarm is active or not:
+docker info
+docker swarm init
+
+docker node ls
+
+docker service create alpine ping 8.8.8.8
+
+docker service ls
+
+docker service ps <name/id>
+docker container ls
+
+docker service update <id> --replicas 3
+docker service ls
+docker service ps <name/id>
+
+docker update --help
+
+
+### Remove an existing containre and it will spin up a new one.
+docker container ls
+docker container rm -f <id>
+docker service ls
+docker service ls
+docker service ls <name>
+
+
+# To remove everything:
+docker service rm <name>
+
+# Changes
+docker service create/update --detach true
+
+docker version
+docker-machine version
+
+
+##################################################################
+
+docker-machine create node1
+docker-machine create node2
+docker-machine create node3
+
+docker-machine ssh node1
+docker-machine env node1
+
+docker swarm init - Get the IP for next command
+docker swarm init --advertise-addr <IP address>
+< Copy and post result of above to worker nodes>
+
+manager token is different:
+docker node update --role manager node2
+
+docker swarm join-token manager
+
+docker service create --replicas 3 alpine ping 8.8.8.8
+
+##################################################################
+
+docker network create --driver overlay mydrupal
+
+docker service create --name psql --network mydrupal 
+    -e POSTGRES_PASSWORD=mypass postgres
+
+docker service ls
+docker service ps psql
+docker container logs psql.*
+
+docker service create --name drupal --network mydrupal -p 80:80 drupal
+
+It has default auto load balancer. Nothhing needs to be done for rebalancing.
+
+The website will work with the IP for any of the three nodes.
+
+
+
+######
+
+docker service create --name search --replicas 3 -p 9200:9200 elasticsearch:2
+
+If running multiple website on same network, use Nginx or HAProxy LB Proxy
+
+
+########################################################################
+
+
+docker node ls
+docker ps -a
+docker service ls
+
+docker network create -d overlay backend
+docker network create -d overlay frondend
+
+
+docker service create --name vote -p 80:80 --network frontend
+--replicas 2 dockersamples/examplevotingapp_vote:before
+
+docker service create --name redis --network frontend --replicas 1
+redis:3.2
+
+docker service create --name workder frondend --network backend 
+dockersamples/examplevotingapp_worker
+
+docker service create --name db --network backend 
+--mount type=volume,source=db-data,target=/var/lib/postgres/data
+postgres:9.4
+
+docker service create --name result --network backend -p 5001:80
+dockersamples/examplevotingapp_result:before
+
+docker service ls
+docker service ps result
+docker service ps redis
+
+docker service logs worker
+
+
+########################################################################
+
+Stacks : Producting Grade compose
+
+docker stack deploy
+
+deploy key in compose file. Can't do build
+
+compose now ignores deploy. Swarm ignores build
+
+Should be atleast version 3 or higher.
+
+Github Repository:
+https://github.com/bretfisher/udemy-docker-mastery
+
+Github folder: swarm-stack-1
+
+docker stack deploy -c example-voting-app-stack.yml voteapp
+docker stack 
+docker stack ls
+docker stack ps voteapp
+
+docker container ls
+docker stack services voteapp
+docker stack ps voteapp
+
+docker network ls
+
+Port: 
+    5000: vote app running
+    5001: Result app running
+    8080: Visualization app running
+
+
+Update yml file by changes replicase to 5 for vote
+docker stack deploy -c example-voting-app-stack.yml voteapp
+# Above same command works as it detect changes
+
+########################################################################
+
+Secret storage for stack: Protecting your environment variables.
+
+file / memory location:
+/run/secrets/<secret_name> or 
+/run/secrets/<secret_alias>
+
+Its swarm only thing. - secrets
+compose save it unencrypted on local files.
+
+cat psql_user.txt
+mypsqluser
+
+docker secret cerate psql_user psql_user.txt    # Drawback: Saves credentials in local files
+echo "myDBPassword" | docker secret create psql_pass -      # Drawback: By going in history, one can check the password
+
+docker secret ls
+
+docker service create --name psql --secret psql_user --secret psql_pass
+-e POSTGRES_PASSWORD_FILE=/run/secrets/psql_pass 
+-e POSTGRES_USER_FILE=/run/secret/psql_user 
+postgres
+
+docker exec -it <container name> bash
+ls /run/secrets/
+
+To remove secrets: 
+docker service update --secret-rm
+# Never remove a secret which is in use by any service/container.
+
+
+########################################################################
+
+Secrets with stacks:
+
+Github folder:
+secrets-sample-2
+
+docker stack deploy -c docker-compose.yml mydb
+
+docker stack rm mydb 
+# Automatically remove secrets
+
+########################################################################
+
+Swarm doesn't build.
+
+/Users/argupta/Desktop/files/public_github/udemy-docker-mastery/secrets-assignment-1/answer/docker-compose.yml
+
+
+
+########################################################################
+
+Full app lifecycle: Dev, build and deploy 
+
+github folder:
+swarm-stack-3
+
+docker-compose up -d
+
+docker-compose -f docker-compose.yml -f docker-compose.test.yml
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml config
+# Create one single file out of two
+
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml config > output.yml
+
+Local settings: normal + override
+ci/cd settings: normal + test
+Producting settings: normal + prod
+
+
+Explore compose extends
+
+
+########################################################################
+
+Service Updates
+
+# Update image to newer version
+docker service update --image myapp:1.2.1 <service_name>
+
+# Add env and remove Port
+docker service update --env-add NODE_ENV=production --publish-rm 8080
+
+# Change number of replices of two service
+docker service scale web=8 api=6
+
+
+# Swarm updates in stack file. Just edit same yml file and rerun same command
+docker stack deploy -c file.yml <stackname>
+
+docker service create -p 8088:80 --name web nginx:1.13.7
+
+# Wordaround for rebalancing. Force update the service
+docker service update --force web
+
+docker service rm web
+
+
+########################################################################
+
+Health Checks
+
+docker run \
+    --health-cmd="curl -f localhost:9200/_cluster/health || false"
+    --health-interval=5s # How frequently it is going to  run healthcheck
+    --health-retries=3
+    --health-timeout=2s
+    --health-start-period=15s
+    elasticsearch:2
+
+Put this in dockerfile
+
+
+
+
+
+
+
