@@ -1,0 +1,182 @@
+
+
+kubectl run
+kubectl create
+kubectl apply
+
+######################################################################
+
+kubectl version
+
+kubectl run : This works only in version before 1.18
+
+
+kubectl run my-nginx --image nginx
+kubectl get pods
+kubectl get all
+
+kubectl delete deployment my-nginx
+
+
+kubectl run my-apache --image httpd
+kubectl scale deploy/my-apache --replicas 2
+kubectl scale deployment my-apache --replicas 2
+
+
+# Inspect
+kubectl get pods
+kubectl logs deployment/my-apache-<id>
+kubectl logs deployment/my-apache-<id> --follow --tail 1
+
+# Selector - select multiple pods with specific label
+
+kubectl logs -l run=my-apache
+
+
+kubectl describe my-apache-xxxxx-yyyy
+
+# Watch command
+kubectl get pods -w
+
+kubectl delete pod/<name>
+
+## Ports and Services
+kubectl expose : for Services
+
+kubectl get pods -w
+
+kubectl create deployment httpenv --image=bretfisher/httpenv
+
+kubectl scale deployment/httpenv --replicas=5
+kubectl expose deployment/httpenv --port 8888
+
+kubectl get service
+
+# Only for Docker Desktop: To curl any machine within it
+kubectl run --generator=run-pod/v1 tmp-shell --rm -it image bretfisher/netshoot -- bash
+curl httpenv:8888
+
+# Export an high port to expose it to outside world. 
+# Range port: 30000 - 32767
+kubectl expose deployment/httpenv --port 8888 --name httpenv-np --type NodePort
+kubectl get services
+
+curl localhost:<new_port>
+
+# Load Balancer: Only on Docker Desktop
+
+kubectl expose deployment/httpenv --port 8888 --name httpenv-lb 
+--type LoadBalancer
+
+kubectl get services
+
+# Clean up
+kubectl delete service/httpenv service/httpenv-np
+kubectl delete service/httpenv-lb deployment/httpenv
+
+
+######################################################
+
+kubectl get namespaces
+
+######################################################
+
+
+# Generators
+kubectl create deployment test --image nginx --dry-run
+
+# To get the yaml output of this without running the actual pod
+kubectl create deployment test --image nginx --dry-run -o yaml
+
+kubectl create job test --image nginx --dry-run -o yaml
+
+######################################################
+
+Kubernetes Imperative
+
+kubectl run, create deployment, update
+
+
+Declarative:
+kubectl apply -f xyz.yaml
+
+######################################################
+
+Three Management Approaches:
+
+Imperative Commands:
+run, expose, scale, edit, create deployment
+
+Imperative Objects:
+create, replace, delete
+
+Declarative Objects:
+apply, dir/ diff
+
+######################################################
+
+kubectl explain services --recursive
+
+kubectl explain services.spec
+kubectl explain services.spec.type
+
+kubectl explain deployment.spec.template
+kubectl explain deployment.spec.template.spec.volumes.nfs.server
+
+######################################################
+
+https://github.com/BretFisher/udemy-docker-mastery/blob/main/k8s-yaml/app.yml
+
+kubectl apply -f app.yml
+kubectl apply -f app.yml --server-dry-run
+
+kubectl diff -f app.yml
+
+######################################################
+
+Labels and Annotations
+
+Labels goes under metadata
+key: value 
+
+Example:
+tier: frontend
+app: api
+env: prod
+customer: acme.co
+
+kubectl get pods -l app=nginx
+
+apply only matching labels
+kubectl apply -f myfile.yaml -l app=nginx
+
+######################################################
+
+Storage:
+At pod level 
+At cluster level
+
+
+Ingress used for multiple url within same cluster access.
+
+Helm/Kustomize for kubernetes deployment yaml
+
+docker app and compose on kubernetes are docker ways
+
+Kubernetes Dashboard
+Some distrubutions have their own GUI: Rancher, docker Enterprise, OpenShift
+
+namespaces and context
+Namespaces: Virtual clusters
+
+kubectl get namespaces
+kubectl get all --all-namespaces
+
+~/.kube/config
+kubectl config get-contexts
+
+Buildkit
+
+
+
+
