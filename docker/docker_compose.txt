@@ -4,6 +4,9 @@
 Configure relationship b/w containers.
 YAML file: containers/ networks/ volumes
 
+
+https://github.com/BretFisher/udemy-docker-mastery/blob/main/compose-sample-1/template.yml
+
 template:
 
 
@@ -63,8 +66,9 @@ services:
 
 Not for production use but good for local development and test
 
-docker-compose up       # Start
-docker-compose down     # Stop
+docker-compose up       # Start. Setup volumes/ networks and start all containers
+docker-compose down     # Stop. Stop all containers and remove cont/vol/net
+
 docker-compose build
 
 docker compose logs

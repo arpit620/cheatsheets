@@ -13,10 +13,11 @@ docker secret
 ##################################################################
 
 Check if swarm is active or not:
-docker info
+docker info -> (Swarm: Inactive)
 docker swarm init
 
 docker node ls
+docker node --help 
 
 docker service create alpine ping 8.8.8.8
 
@@ -30,13 +31,14 @@ docker service ls
 docker service ps <name/id>
 
 docker update --help
+docker service update --help
 
 
 ### Remove an existing containre and it will spin up a new one.
 docker container ls
 docker container rm -f <id>
 docker service ls
-docker service ls
+docker service ps <name>
 docker service ls <name>
 
 
@@ -48,6 +50,9 @@ docker service create/update --detach true
 
 docker version
 docker-machine version
+
+Download docker-machine from official docker website if its not there on local.
+
 
 
 ##################################################################
