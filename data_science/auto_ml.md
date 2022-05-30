@@ -1,4 +1,10 @@
+PyCaret
+ClearML
 
+AutoML
+EvalML
+
+FLAML - Fast and Lightweight Auto ML
 
 AutoKeras
 
