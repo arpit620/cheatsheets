@@ -20,6 +20,7 @@ docker container logs webhost
 # Old way
 docker logs webhost 
 
+docker container top <name/id>    # To check processes running inside container
 docker container top webhost    # To check processes running inside container
 docker container --help     # For list of supported commands
 
@@ -171,6 +172,7 @@ docker system prune - clean up everything
 docker image prune -a : remove images not in use
 docker system df : see space usage
 docker volume prune - remove unused volumes
+docker container prune - remove unused containers
 
 # Volumes
 Volumes remains ever after deleting the containers. Need to be deleted manually.

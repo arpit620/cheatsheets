@@ -1,8 +1,9 @@
 import logging
 
 logging.basicConfig(filename='python/extras/employee.log', level=logging.INFO,
-                    format='%(levelname)s:%(message)s')
-
+                    format='%(levelname)s:%(message)s', filemode='w')
+# logging.disable()
+# Filemode decide if it needs to append or overwrite the file.
 
 class Employee:
     """A sample Employee class"""
