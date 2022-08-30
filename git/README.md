@@ -313,3 +313,11 @@ git fetch upstream
 
 Updating your fork from original repo to keep up with their changes:\
 `git pull upstream master`
+
+## Review a PR (Pull Request)
+ID is the unique number present after the PR Title. This will create a new branch which you can download and verify on your local.
+[Link](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)
+```
+git fetch origin pull/ID/head:BRANCHNAME
+git fetch origin pull/1/head:review_pr_1
+```
